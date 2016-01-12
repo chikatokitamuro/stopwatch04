@@ -13,6 +13,7 @@
 		BE77DD9C1C451196008CBD4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE77DD9A1C451196008CBD4B /* Main.storyboard */; };
 		BE77DD9E1C451196008CBD4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE77DD9D1C451196008CBD4B /* Assets.xcassets */; };
 		BE77DDA11C451196008CBD4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE77DD9F1C451196008CBD4B /* LaunchScreen.storyboard */; };
+		BE77DDA91C452771008CBD4B /* bonb1.png in Resources */ = {isa = PBXBuildFile; fileRef = BE77DDA81C452771008CBD4B /* bonb1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BE77DD9D1C451196008CBD4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE77DDA01C451196008CBD4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE77DDA21C451196008CBD4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE77DDA81C452771008CBD4B /* bonb1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonb1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				BE77DD981C451196008CBD4B /* ViewController.m */,
 				BE77DD9A1C451196008CBD4B /* Main.storyboard */,
 				BE77DD9D1C451196008CBD4B /* Assets.xcassets */,
+				BE77DDA81C452771008CBD4B /* bonb1.png */,
 				BE77DD9F1C451196008CBD4B /* LaunchScreen.storyboard */,
 				BE77DDA21C451196008CBD4B /* Info.plist */,
 				BE77DD911C451196008CBD4B /* Supporting Files */,
@@ -139,6 +142,7 @@
 			files = (
 				BE77DDA11C451196008CBD4B /* LaunchScreen.storyboard in Resources */,
 				BE77DD9E1C451196008CBD4B /* Assets.xcassets in Resources */,
+				BE77DDA91C452771008CBD4B /* bonb1.png in Resources */,
 				BE77DD9C1C451196008CBD4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +303,7 @@
 				BE77DDA71C451196008CBD4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

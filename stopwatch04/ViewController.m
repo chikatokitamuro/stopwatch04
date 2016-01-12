@@ -73,7 +73,7 @@
     sButton.backgroundColor = [UIColor greenColor];
     [sButton setTitle:@"ストップ" forState:UIControlStateNormal];
     [self.view addSubview:sButton];
-    [sButton addTarget:self action:@selector(timerStart:)
+    [sButton addTarget:self action:@selector(timerStop:)
       forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -106,11 +106,15 @@
     
     
 }
--(void)timerStart(id)sender{
+
+
+-(void)timerStart:(id)sender{
+    //タイマーインスタンスを作成
+    atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+    
     float currentTime = [timeLabel.text floatValue];
     float displayTime = currentTime + 0.01;
-    timeLabel.text = [NSString stringWithFormat:@"%.2f", displayTime];
-    //エラーの理由を解説ください
+    
 }
 
 -(void)timerStop:(id)sender{
@@ -120,14 +124,11 @@
     }
 }
 
--(void)timerReset(id)sender{
+-(void)timerReset:(id)sender{
     
     timeLabel.text = @"00.00";
-    //エラーの理由を解説ください
+    
 }
-/*-(IBAction) clear:(id) sender{
- timeLabel.text = @"00.00";
- }*/
 
 
 - (void)viewDidLoad {
@@ -137,8 +138,7 @@
     // ラベルとイメージビューを作成するメソッドを呼び出す
     [self setupParts];
     
-    //タイマーインスタンスを作成
-    atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+    
     
     
 }
