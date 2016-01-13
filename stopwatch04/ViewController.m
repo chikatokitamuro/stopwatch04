@@ -116,16 +116,14 @@
 
 
 -(void)timerStart:(id)sender{
-    if(n=1){
+    if(n==1){
     atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
         [aButton setTitle:@"ストップ" forState:UIControlStateNormal];
-        [self.view addSubview:aButton];
-        n=0;
+        n==0;
             } else if(n=0){
         [atimer invalidate];
         [aButton setTitle:@"スタート" forState:UIControlStateNormal];
-        [self.view addSubview:aButton];
-        n=1;
+        n==1;
     }
     float currentTime = [timeLabel.text floatValue];
     float displayTime = currentTime + 0.01;
@@ -134,7 +132,7 @@
 
 
 -(void)timerReset:(id)sender{
-    timeLabel.text = @"00.00";// スタートはうまくいくのですが　ストップで止まりません　またリセットボタンを押すと勝手にタイマーがはじまり、だんだん早くなるようです　どうしたらよいでしょうか
+    timeLabel.text = @"00.00";// ご指摘の箇所を修正しましたが、シュミレートするとストップで止まりません　またリセットボタンを押すと勝手にタイマーがはじまり、だんだん早くなるようです
 }
 
 
