@@ -23,7 +23,7 @@
     
     //タイマーを格納する変数を宣言
     NSTimer *atimer;
-    NSInteger countNumber;
+    NSInteger countNumber = 0;　//なぜエラーが出るのでしょうか
 }
 @end
 
@@ -62,13 +62,13 @@
     aButton.backgroundColor = [UIColor greenColor];
     [aButton setTitle:@"スタート" forState:UIControlStateNormal];
     [self.view addSubview:aButton];
-    [aButton addTarget:self action:@selector(timerStart:)//エラーの理由を解説ください
+    [aButton addTarget:self action:@selector(timerStart:)
       forControlEvents:UIControlEventTouchUpInside];
     
     
     sButton = [UIButton buttonWithType:UIButtonTypeSystem];
     sButton.frame = CGRectMake(30, 200, 100, 50);
-    sButton.center = CGPointMake(100, 500);
+    sButton.center = CGPointMake(100, 450);
     sButton.tintColor = [UIColor redColor];
     sButton.backgroundColor = [UIColor greenColor];
     [sButton setTitle:@"ストップ" forState:UIControlStateNormal];
@@ -102,18 +102,39 @@
     
     // ラベルに現在時刻を表示
     [timeLabel setText:dateStr];
-    
+  
+    /*例えば、スタート/ストップボタンが押されたら、変数を先にn=1としておいて、
+     
+     if(n=1){
+     タイマー始動
+     ボタンの文字を「ストップ」に切り替える
+     n=0;
+     }
+     else if(n=0){
+     タイマー停止
+     ボタンの文字を「スタート」に切り替える
+     n=1;
+     }
+     
+     などと分岐させる
+     
+     とのことですが　ご指定いただいた上記のコードはどこに書けばよいのでしょうか
+     -(void)timerStart:か　-(void)timerStop:かいずれにしてもしっくりこないような感じになるんですが、、、*/
     
     
 }
 
 
 -(void)timerStart:(id)sender{
-    //タイマーインスタンスを作成
+    
     atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+       
     
     float currentTime = [timeLabel.text floatValue];
     float displayTime = currentTime + 0.01;
+    
+    
+    
     
 }
 
