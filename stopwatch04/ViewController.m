@@ -23,13 +23,11 @@
     
     //タイマーを格納する変数を宣言
     NSTimer *atimer;
-    NSInteger countNumber = 0;　//なぜエラーが出るのでしょうか
+    NSInteger n;
 }
 @end
 
 @implementation ViewController
-
-
 
 - (void)setupParts{
     // 背景画像を設定
@@ -65,18 +63,6 @@
     [aButton addTarget:self action:@selector(timerStart:)
       forControlEvents:UIControlEventTouchUpInside];
     
-    
-    sButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    sButton.frame = CGRectMake(30, 200, 100, 50);
-    sButton.center = CGPointMake(100, 450);
-    sButton.tintColor = [UIColor redColor];
-    sButton.backgroundColor = [UIColor greenColor];
-    [sButton setTitle:@"ストップ" forState:UIControlStateNormal];
-    [self.view addSubview:sButton];
-    [sButton addTarget:self action:@selector(timerStop:)
-      forControlEvents:UIControlEventTouchUpInside];
-    
-    
     rButton = [UIButton buttonWithType:UIButtonTypeSystem];
     rButton.frame = CGRectMake(100, 200, 100, 50);
     rButton.center = CGPointMake(200, 450);
@@ -104,7 +90,6 @@
     [timeLabel setText:dateStr];
   
     /*例えば、スタート/ストップボタンが押されたら、変数を先にn=1としておいて、
-     
      if(n=1){
      タイマー始動
      ボタンの文字を「ストップ」に切り替える
@@ -113,44 +98,11 @@
      else if(n=0){
      タイマー停止
      ボタンの文字を「スタート」に切り替える
-     n=1;
-     }
-     
-     などと分岐させる
-     
-     とのことですが　ご指定いただいた上記のコードはどこに書けばよいのでしょうか
-     -(void)timerStart:か　-(void)timerStop:かいずれにしてもしっくりこないような感じになるんですが、、、*/
-    
+     n=1;}
+     //などと分岐させる
+     */
     
 }
-
-
--(void)timerStart:(id)sender{
-    
-    atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
-       
-    
-    float currentTime = [timeLabel.text floatValue];
-    float displayTime = currentTime + 0.01;
-    
-    
-    
-    
-}
-
--(void)timerStop:(id)sender{
-    if (atimer != nil){
-        [atimer invalidate];
-        atimer = nil;
-    }
-}
-
--(void)timerReset:(id)sender{
-    
-    timeLabel.text = @"00.00";
-    
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -159,20 +111,38 @@
     // ラベルとイメージビューを作成するメソッドを呼び出す
     [self setupParts];
     
-    
-    
-    
+    n=1;
 }
--(void)tick:(NSTimer*)atimer{
-    
+
+
+-(void)timerStart:(id)sender{
+    if(n=1){
+    atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
+        [aButton setTitle:@"ストップ" forState:UIControlStateNormal];
+        [self.view addSubview:aButton];
+        n=0;
+            } else if(n=0){
+        [atimer invalidate];
+        [aButton setTitle:@"スタート" forState:UIControlStateNormal];
+        [self.view addSubview:aButton];
+        n=1;
+    }
     float currentTime = [timeLabel.text floatValue];
     float displayTime = currentTime + 0.01;
-    
-    timeLabel.text = [NSString stringWithFormat:@"%.2f", displayTime];
+
 }
 
 
+-(void)timerReset:(id)sender{
+    timeLabel.text = @"00.00";// スタートはうまくいくのですが　ストップで止まりません　またリセットボタンを押すと勝手にタイマーがはじまり、だんだん早くなるようです　どうしたらよいでしょうか
+}
 
+
+-(void)tick:(NSTimer*)atimer{
+    float currentTime = [timeLabel.text floatValue];
+    float displayTime = currentTime + 0.01;
+    timeLabel.text = [NSString stringWithFormat:@"%.2f", displayTime];
+}
 
 
 - (void)didReceiveMemoryWarning {
