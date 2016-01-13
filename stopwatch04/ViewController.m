@@ -119,14 +119,13 @@
     if(n==1){
     atimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick:) userInfo:nil repeats:YES];
         [aButton setTitle:@"ストップ" forState:UIControlStateNormal];
-        n==0;
-            } else if(n=0){
+        n=0;
+            } else if(n==0){
         [atimer invalidate];
         [aButton setTitle:@"スタート" forState:UIControlStateNormal];
-        n==1;
+        n=1;
     }
-    float currentTime = [timeLabel.text floatValue];
-    float displayTime = currentTime + 0.01;
+    
 
 }
 
